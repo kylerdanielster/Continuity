@@ -82,6 +82,7 @@ gem 'sitemap_generator', '~> 6.0', '>= 6.0.1'
 gem 'webpacker', '~> 3.5', '>= 3.5.3'
 gem 'whenever', require: false
 group :development do
+  gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
 end
