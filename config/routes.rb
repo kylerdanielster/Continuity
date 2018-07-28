@@ -19,5 +19,9 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   root to: 'home#index'
+
+  resources :question_threads do
+    resources :question_answers, module: :question_threads
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_28_043928) do
+ActiveRecord::Schema.define(version: 2018_07_28_183806) do
 
   create_table "announcements", force: :cascade do |t|
     t.datetime "published_at"
@@ -40,6 +40,22 @@ ActiveRecord::Schema.define(version: 2018_07_28_043928) do
     t.string "action"
     t.integer "notifiable_id"
     t.string "notifiable_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "question_answers", force: :cascade do |t|
+    t.integer "question_thread_id"
+    t.integer "user_id"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "question_threads", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "question"
+    t.text "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
