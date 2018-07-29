@@ -7,7 +7,6 @@ class QuestionThreadsController < ApplicationController
   end
 
   def show
-		# this should get all proposed answers
 		@question_answer = QuestionAnswer.new
 		@question_answers = QuestionAnswer.all
   end
