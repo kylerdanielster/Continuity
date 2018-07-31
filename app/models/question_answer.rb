@@ -13,4 +13,5 @@
 class QuestionAnswer < ApplicationRecord
   belongs_to :question_thread
   belongs_to :user
+  has_many :comments
 end

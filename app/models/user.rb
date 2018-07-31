@@ -35,4 +35,5 @@ class User < ApplicationRecord
 
   has_many :question_threads
   has_many :question_answers
+  has_many :comments
 end
