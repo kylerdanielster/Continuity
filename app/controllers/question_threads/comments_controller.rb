@@ -5,8 +5,9 @@ class QuestionThreads::CommentsController < ApplicationController
   # Thinking this should create new comment 
   # The use jquery to show the form
   def new
-    @question_answer.comments.new
+    #@question_answer.comments.new
     #redirect_to question_thread_path(@question_answer.question_thread_id)
+    @comment = Comment.new
     respond_to do |format|
       format.js
     end
@@ -14,7 +15,7 @@ class QuestionThreads::CommentsController < ApplicationController
 
   # Need to add form to test create
   def create
-		@comment = @question_answer.comment.new comment_params
+		@comment = @question_answer.comments.new comment_params
 		@comment.user = current_user
 
     if @comment.save

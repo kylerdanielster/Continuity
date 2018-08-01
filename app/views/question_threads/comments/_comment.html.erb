@@ -1,4 +1,7 @@
-<% @comment.each do |c| %>
-  <p><%= c.body %></p>
+<% @comments.each do |c| %>
+  <div id="comment-<%= c.id.to_s %> %>">
+    <p><%= c.body %></p>
+  </div>
   <hr />
 <% end %>
+

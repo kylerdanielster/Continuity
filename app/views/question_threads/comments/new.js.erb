@@ -1,1 +1,4 @@
-Alert("testing")
+var id = '#addComment-' + <%= @question_answer.id.to_s %>;
+console.log(id);
+$(id).replaceWith("<%= j render(partial:
+    'question_threads/comments/form', locals: {question_answer: @question_answer, comment: @comment}) %>")

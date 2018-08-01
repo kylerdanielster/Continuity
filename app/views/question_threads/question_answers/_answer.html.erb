@@ -1,6 +1,14 @@
 <% @question_answers.each do |qa| %>
-  <p><%= qa.body %></p>
-  <%= link_to "Add comment", new_question_answer_comment_url(qa.id), remote: true %>
+  <div id="answer-<%= qa.id %>">
+    <p><%= qa.body %></p>
+
+    <%= render partial: "question_threads/comments/comment" %>
+
+    <div id="addComment-<%= qa.id.to_s %>">
+    <%= link_to "Add comment", new_question_answer_comment_url(qa.id), remote: true,
+                id: "addCommentLink-" + qa.id.to_s %>
+    </div>
+  </div>
   <hr />
 <% end %>
 
