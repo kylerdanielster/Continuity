@@ -1,4 +1,0 @@
-<%= div_for question_answer do %>
-  <p class="text-muted">Posted by <%= question_answer.user.name %> <%= local_time_ago question_answer.created_at %></p>
-  <p><%= markdownify question_answer.body %></p>
-<% end %>
