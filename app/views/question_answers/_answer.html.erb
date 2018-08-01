@@ -1,6 +1,6 @@
 <% @question_answers.each do |qa| %>
   <p><%= qa.body %></p>
-  <%= link_to "Add comment", question_threads_url %>
+  <%= link_to "Add comment", new_question_answer_comment_url(qa.id), remote: true %>
   <hr />
 <% end %>
 
