@@ -9,11 +9,6 @@ class QuestionThreadsController < ApplicationController
   def show
 		@question_answer = QuestionAnswer.new
 		@question_answers = QuestionAnswer.where(question_thread_id: @question_thread.id)
-
-    # TODO: Find the comments for each question_answer
-    # This is hardcode for now.
-    @comments = Comment.where(question_answer_id: 1) #get_comments
-    #byebug
   end
 
   def new

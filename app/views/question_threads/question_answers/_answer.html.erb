@@ -2,7 +2,7 @@
   <div id="answer-<%= qa.id %>">
     <p><%= qa.body %></p>
 
-    <%= render partial: "question_threads/comments/comment" %>
+    <%= render partial: "question_threads/comments/comment", locals: {comments: qa.comments} %>
 
     <div id="addComment-<%= qa.id.to_s %>">
     <%= link_to "Add comment", new_question_answer_comment_url(qa.id), remote: true,
