@@ -1,6 +1,7 @@
 <% @question_answers.each do |qa| %>
   <div class="row" id="answer-<%= qa.id %>">
     <div class="col answer ">
+      <div class="userName">Answer By: <%= qa.user.name %></div>
       <p><%= qa.body %></p>
     </div>
   </div>
@@ -13,6 +14,5 @@
                 id: "addCommentLink-" + qa.id.to_s %>
     </div>
   </div>
-  <hr />
 <% end %>
 

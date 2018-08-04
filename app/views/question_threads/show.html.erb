@@ -2,13 +2,13 @@
     <div class="row">
       <div class="col question">
         <h1><%= @question_thread.question %></h1>
-        <p class="text-muted">Created by <%= @question_thread.user.name %></p>
+        <p class="text-muted">Asked by <%= @question_thread.user.name %></p>
         <p><%= @question_thread.details %></p>
       </div>
     </div>
-    <hr />
 
     <%= render partial: "question_threads/question_answers/answer" %>
 
+    <h5>Provide an answer</h5>
     <%= render partial: "question_threads/question_answers/form" %>
 </div>

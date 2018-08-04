@@ -20,3 +20,47 @@
 body > .alert {
   margin-bottom: 0;
 }
+
+
+// Question
+.question {
+
+  padding-bottom: 1rem;
+}
+
+// Answer
+.answer {
+  border-top: #999999 1px solid;
+  border-bottom: #999999 1px solid;
+  padding-top: 1rem;
+
+  .userName {
+    font-size: small;
+    color: #666666;
+    padding-bottom: .5rem;
+  }
+}
+
+.answerForm {
+  padding-top: 1rem;
+}
+
+// Comment
+.comment {
+  border-bottom: #999999 1px solid;
+  padding-top: 1rem;
+  padding-left: 40px;
+
+  small {
+    color: #666666;
+  }
+}
+
+.addComment {
+  padding: 1rem;
+  text-align: right;
+}
+
+.commentForm {
+  padding-top: 1rem;
+}

@@ -1,4 +1,4 @@
-<%= form_for [@question_thread, @question_answer] do |f| %>
+<%= form_for [@question_thread, @question_answer], html: {class: "answerForm"}  do |f| %>
   <div class="form-group">
     <%= f.text_area :body, placeholder: "Answer", rows: 10, class: "form-control" %>
   </div>
