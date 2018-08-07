@@ -3,6 +3,7 @@
 # Table name: question_answers
 #
 #  id                 :integer          not null, primary key
+#  IsAcceptedAnswer   :boolean
 #  body               :text
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null

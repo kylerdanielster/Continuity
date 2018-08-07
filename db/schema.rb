@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_31_224731) do
+ActiveRecord::Schema.define(version: 2018_08_07_033156) do
 
   create_table "announcements", force: :cascade do |t|
     t.datetime "published_at"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2018_07_31_224731) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "IsAcceptedAnswer"
   end
 
   create_table "question_threads", force: :cascade do |t|
