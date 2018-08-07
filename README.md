@@ -1,29 +1,31 @@
-# README
+# Continutiy
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Not entirely sure what this is going to be yet...
 
-Things you may want to cover:
+* System dependencies
 
-* Ruby version
+Redis
+
 To have launchd start redis now and restart at login:
   brew services start redis
 Or, if you don't want/need a background service you can just run:
   redis-server /usr/local/etc/redis.conf
 
-
-* System dependencies
-
 * Configuration
+
+Can be started with Foreman start in the root directory if redis is setup and running on 
+
+Otherwise 'rails s' will run with limited functionality
 
 * Database creation
 
-* Database initialization
+rails db:migrate will setup a local sqlite db for development 
 
-* How to run the test suite
+This project was started using the 'Jumpstart' Rails project setup. 
+https://github.com/kylerdanielster/jumpstart Forked from gorails.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+* Ruby version 2.4 
+* Rails version 5.2
 
-* ...
+
