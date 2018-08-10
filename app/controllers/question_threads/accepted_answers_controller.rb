@@ -4,7 +4,7 @@ class QuestionThreads::AcceptedAnswersController < ApplicationController
 
   # TODO: Consider changing this to update method
   def create
-    @question_thread.AcceptedAnswerId = accepted_answer_params[:question_answer_id]
+    @question_thread.accepted_answer_id = accepted_answer_params[:question_answer_id]
     @question_thread.save
     redirect_to question_thread_url(accepted_answer_params[:question_thread_id])
   end

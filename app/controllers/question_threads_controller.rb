@@ -9,7 +9,7 @@ class QuestionThreadsController < ApplicationController
   def show
 		@question_answer = QuestionAnswer.new
 		answers = QuestionAnswer.where(question_thread_id: @question_thread.id)
-    acceptedAnswerId = @question_thread.AcceptedAnswerId
+    acceptedAnswerId = @question_thread.accepted_answer_id
     @accepted_answer = answers.to_a.select { |a| a.id == acceptedAnswerId }
     @question_answers = answers.to_a.reject { |a| a.id == acceptedAnswerId }
   end
