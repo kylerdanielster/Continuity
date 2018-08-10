@@ -30,5 +30,7 @@ Rails.application.routes.draw do
     resources :comments, module: :question_threads
   end
 
+  resources :accepted_answers, only: [:create], module: :question_threads
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

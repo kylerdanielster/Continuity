@@ -3,6 +3,11 @@
     <div class="col answer ">
       <div class="userName">Answer By: <%= qa.user.name %></div>
       <p><%= qa.body %></p>
+      <% if qa.user_id == current_user.id %>
+        <%= link_to "Accept Answer",
+                    accepted_answers_url(question_answer_id: qa.id, question_thread_id: qa.question_thread_id),
+                    id: "acceptAnswerLink-" + qa.id.to_s, :method => :post %>
+      <% end %>
     </div>
   </div>
 
