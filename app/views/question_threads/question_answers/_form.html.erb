@@ -3,7 +3,11 @@
     <%= f.text_area :body, placeholder: "Answer", rows: 10, class: "form-control" %>
   </div>
 
+ <% if user_signed_in? %>
  <div class="form-group">
     <%= f.submit "Post answer", :class => "btn btn-primary form-control" %>
   </div>
+  <% else %>
+    <%= link_to "Sign in to submit and answer", new_user_session_url %>
+  <% end %>
 <% end %>
