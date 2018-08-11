@@ -9,7 +9,8 @@ class QuestionThreads::QuestionAnswersController < ApplicationController
 
     if @question_answer.save
       # @question_thread.send_notifications!
-      redirect_to question_thread_path(@question_thread, anchor: "question_answer_#{@question_answer.id}"), notice: "Successfully posted!"
+      redirect_to question_thread_path(@question_thread, anchor: "question_answer_#{@question_answer.id}"),
+                  notice: "Successfully posted!"
     else
       redirect_to @question_thread, alert: "Unable to save your post"
     end

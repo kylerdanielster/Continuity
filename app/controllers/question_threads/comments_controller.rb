@@ -15,7 +15,9 @@ class QuestionThreads::CommentsController < ApplicationController
 
     if @comment.save
       # @question_answer.send_notifications!
-      redirect_to question_thread_path(@question_answer.question_thread_id, anchor: "question_answer_#{@question_answer.id}"), notice: "Successfully posted!"
+      redirect_to question_thread_path(@question_answer.question_thread_id,
+                                       anchor: "question_answer_#{@question_answer.id}"),
+                                       notice: "Successfully posted!"
     else
       redirect_to question_thread_path(@question_answer.question_thread_id), alert: "Unable to save your comment"
     end

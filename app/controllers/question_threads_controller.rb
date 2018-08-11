@@ -23,9 +23,9 @@ class QuestionThreadsController < ApplicationController
     @question_thread = current_user.question_threads.new question_thread_params
 
     if @question_thread.save
-      redirect_to @question_thread
+      redirect_to @question_thread, notice: "Successfully created!"
     else
-      render action: new
+      render action: new, alert: "Unable to create your question"
     end
   end
   
