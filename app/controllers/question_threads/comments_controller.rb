@@ -1,6 +1,6 @@
 class QuestionThreads::CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_question_answer
+  before_action :set_answer
 
   def new
     @comment = Comment.new
@@ -10,16 +10,16 @@ class QuestionThreads::CommentsController < ApplicationController
   end
 
   def create
-		@comment = @question_answer.comments.new comment_params
+		@comment = @answer.comments.new comment_params
 		@comment.user = current_user
 
     if @comment.save
       # @question_answer.send_notifications!
-      redirect_to question_thread_path(@question_answer.question_thread_id,
-                                       anchor: "question_answer_#{@question_answer.id}"),
+      redirect_to question_thread_path(@answer.question_thread_id,
+                                       anchor: "question_answer_#{@answer.id}"),
                                        notice: "Successfully posted!"
     else
-      redirect_to question_thread_path(@question_answer.question_thread_id), alert: "Unable to save your comment"
+      redirect_to question_thread_path(@answer.question_thread_id), alert: "Unable to save your comment"
     end
 
   end
@@ -27,8 +27,8 @@ class QuestionThreads::CommentsController < ApplicationController
 
   private
 
-    def set_question_answer
-      @question_answer = QuestionAnswer.find(params[:question_answer_id])
+    def set_answer
+      @answer = Answer.find(params[:answer_id])
     end
 
 		def comment_params

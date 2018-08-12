@@ -1,4 +1,4 @@
-<%= form_for [@question_answer, @comment], html: {class: "commentForm"} do |c| %>
+<%= form_for [@answer, @comment], html: {class: "commentForm"} do |c| %>
   <div class="form-group">
     <%= c.text_area :body, placeholder: "Comment", rows: 10, class: "form-control" %>
   </div>

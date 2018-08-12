@@ -2,12 +2,12 @@
 #
 # Table name: comments
 #
-#  id                 :integer          not null, primary key
-#  body               :text
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  question_answer_id :integer
-#  user_id            :integer
+#  id         :integer          not null, primary key
+#  body       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  answer_id  :integer
+#  user_id    :integer
 #
 
 require 'test_helper'

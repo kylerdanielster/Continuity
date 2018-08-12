@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: question_answers
+# Table name: answers
 #
 #  id                 :integer          not null, primary key
 #  IsAcceptedAnswer   :boolean
@@ -11,7 +11,7 @@
 #  user_id            :integer
 #
 
-class QuestionAnswer < ApplicationRecord
+class Answer < ApplicationRecord
   belongs_to :question_thread
   belongs_to :user
   has_many :comments
