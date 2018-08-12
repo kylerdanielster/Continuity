@@ -13,7 +13,7 @@
 
 class QuestionThread < ApplicationRecord
   belongs_to :user
-  has_many :question_answers
+  has_many :answers
 
   validates :question, presence: true
   validates :details, presence: true

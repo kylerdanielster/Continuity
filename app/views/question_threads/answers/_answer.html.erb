@@ -1,32 +1,29 @@
-
-
 <div id="answers">
-  <% @answers.each do |qa| %>
-    <div class="row" id="answer-<%= qa.id %>">
+    <div class="row" id="answer-<%= answer.id %>">
       <div class="col answer ">
-        <div class="userName">Answer By: <%= qa.user.name %></div>
-        <p><%= qa.body %></p>
+        <div class="userName">Answer By: <%= answer.user.name %></div>
+        <p><%= answer.body %></p>
 
-        <% if user_signed_in? and qa.user_id == current_user.id %>
+        <% if user_signed_in? and answer.user_id == current_user.id %>
           <%= link_to "Accept Answer",
-                      accepted_answers_url(answer_id: qa.id, question_thread_id: qa.question_thread_id),
-                      id: "acceptAnswerLink-" + qa.id.to_s, :method => :post %>
+                      accepted_answers_url(answer_id: answer.id, question_thread_id: answer.question_thread_id),
+                      id: "acceptAnswerLink-" + answer.id.to_s, :method => :post %>
         <% end %>
 
       </div>
     </div>
 
-    <%= render partial: "question_threads/comments/comment", locals: {comments: qa.comments} %>
-
-    <div class="row" id="addComment-<%= qa.id.to_s %>">
+  <%# @answers.each do |qa| %>
+    <%= render partial: "question_threads/comments/comment", locals: {comments: answer.comments} %>
+  <%# end %>
+    <div class="row" id="addComment-<%= answer.id.to_s %>">
       <div class="col addComment">
         <% if user_signed_in? %>
-          <%= link_to "Add comment", new_answer_comment_url(qa.id), remote: true,
-                      id: "addCommentLink-" + qa.id.to_s %>
+          <%= link_to "Add comment", new_answer_comment_url(answer.id), remote: true,
+                      id: "addCommentLink-" + answer.id.to_s %>
         <% else %>
           <%= link_to "Sign in to add a comment", new_user_session_url %>
         <% end %>
       </div>
     </div>
-  <% end %>
 </div>

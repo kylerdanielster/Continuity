@@ -8,7 +8,9 @@
 
 <%= render partial: "question_threads/accepted_answers/accepted_answer" %>
 
-<%= render partial: "question_threads/answers/answer" %>
+<% @answers.each do |answer| %>
+  <%= render partial: "question_threads/answers/answer", :locals => {:answer => answer} %>
+<% end %>
 
 <%= render partial: "question_threads/answers/form" %>
 
