@@ -1,10 +1,4 @@
-<div class="row" id="acceptedAnswer">
-  <div class="col answer">
-    <div class="userName">Answer By: <%= @accepted_answer.first.user.name %></div>
-    <p><%= @accepted_answer.first.body %></p>
-    <%= render partial: "question_threads/comments/comment", locals: {comments: @accepted_answer.first.comments} %>
-  </div>
-</div>
+
 
 <div id="answers">
   <% @answers.each do |qa| %>

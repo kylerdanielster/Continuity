@@ -1,9 +1,14 @@
-<%= form_for [@answer, @comment], html: {class: "commentForm"} do |c| %>
-  <div class="form-group">
-    <%= c.text_area :body, placeholder: "Comment", rows: 10, class: "form-control" %>
-  </div>
+<div class="row">
+  <div class="col">
+    <h5>Provide an answer</h5>
+      <%= form_for [@answer, @comment], html: {class: "commentForm"} do |c| %>
+        <div class="form-group">
+          <%= c.text_area :body, placeholder: "Comment", rows: 10, class: "form-control" %>
+        </div>
 
-  <div class="form-group">
-    <%= c.submit "Add comment", :class => "btn btn-primary form-control" %>
+        <div class="form-group">
+          <%= c.submit "Add comment", :class => "btn btn-primary form-control" %>
+        </div>
+      <% end %>
   </div>
-<% end %>
+</div>
