@@ -13,17 +13,5 @@
       </div>
     </div>
 
-  <%# @answers.each do |qa| %>
-    <%= render partial: "question_threads/comments/comment", locals: {comments: answer.comments} %>
-  <%# end %>
-    <div class="row" id="addComment-<%= answer.id.to_s %>">
-      <div class="col addComment">
-        <% if user_signed_in? %>
-          <%= link_to "Add comment", new_answer_comment_url(answer.id), remote: true,
-                      id: "addCommentLink-" + answer.id.to_s %>
-        <% else %>
-          <%= link_to "Sign in to add a comment", new_user_session_url %>
-        <% end %>
-      </div>
-    </div>
+
 </div>

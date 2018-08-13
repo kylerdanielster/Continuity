@@ -9,7 +9,25 @@
 <%= render partial: "question_threads/accepted_answers/accepted_answer" %>
 
 <% @answers.each do |answer| %>
-  <%= render partial: "question_threads/answers/answer", :locals => {:answer => answer} %>
+  <%= render partial: "question_threads/answers/answer", locals:{answer: answer} %>
+
+  <%= render partial: "question_threads/comments/comment", locals:{comments: answer.comments} %>
+
+  <div class="row" id="addComment-<%= answer.id.to_s %>">
+    <div class="col addComment">
+      <% if user_signed_in? %>
+        <%= link_to "Add comment", new_answer_comment_url(answer.id), remote: true,
+                    id: "addCommentLink-" + answer.id.to_s %>
+      <% else %>
+        <%= link_to "Sign in to add a comment", new_user_session_url %>
+      <% end %>
+    </div>
+  </div>
+
+  <%# Not sure why this doesnt work %>
+  <%# answer.comments.each do |comment| %>
+    <%#= render partial: "question_threads/comments/comment", locals: {comment: comment} %>
+  <%# end %>
 <% end %>
 
 <%= render partial: "question_threads/answers/form" %>
