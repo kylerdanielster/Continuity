@@ -1,15 +1,9 @@
-<% comments.each do |c| %>
-  <div class="row" id="comment-<%= c.id.to_s %> %>">
-    <div class="comment col">
-      <p><%= c.body %><small> By: <%= c.user.name %></small></p>
+<div class="row" id="comment-<%= comment.id.to_s %> %>" data-controller="inline-edit">
+  <div class="comment col">
+    <div class="commentBody mb-3" data-target="inline-edit.body" data-action="click->inline-edit#toggle">
+      <%= comment.body %> <small> By: <%= comment.user.name %></small>
     </div>
+    <%#= render partial: 'question_threads/comments/form', answer: @answer,  comment: comment, class: "d-none" %>
   </div>
-<% end %>
-
-<!-- Not sure why this doesnt work with the commented out code in question_thread 'show' -->
-<!--  <div class="row" id="comment-<%#= comment.id.to_s %> %>">-->
-<!--    <div class="comment col">-->
-<!--      <p><%#= comment.body %><small> By: <%#= comment.user.name %></small></p>-->
-<!--    </div>-->
-<!--  </div>-->
+</div>
 

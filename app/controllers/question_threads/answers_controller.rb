@@ -19,6 +19,7 @@ class QuestionThreads::AnswersController < ApplicationController
     end
   end
 
+  # Not used yet
 	def update
     respond_to do |format|
       if @answer.update answer_params

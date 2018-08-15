@@ -1,8 +1,6 @@
-<%= form_for [@question_thread, @answer], html: {class: "answerForm"},
-             data: { controller: "answer-form" }, :remote => true  do |f| %>
+<%= form_for [@question_thread, @answer], html: {class: "answerForm"}, :remote => true  do |f| %>
   <div class="form-group">
-    <%= f.text_area :body, placeholder: "Answer", rows: 10, class: "form-control",
-      data: { target: "answer-form.body" } %>
+    <%= f.text_area :body, placeholder: "Answer", rows: 10, class: "form-control" %>
   </div>
 
  <% if user_signed_in? %>

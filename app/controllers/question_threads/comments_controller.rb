@@ -13,17 +13,22 @@ class QuestionThreads::CommentsController < ApplicationController
 		@comment = @answer.comments.new comment_params
 		@comment.user = current_user
 
+    respond_to do |format|
     if @comment.save
-      # @question_answer.send_notifications!
-      redirect_to question_thread_path(@answer.question_thread_id,
-                                       anchor: "question_answer_#{@answer.id}"),
-                                       notice: "Successfully posted!"
-    else
-      redirect_to question_thread_path(@answer.question_thread_id), alert: "Unable to save your comment"
+        # @question_answer.send_notifications!
+        format.html { redirect_to question_thread_path(@answer.question_thread_id,
+                                         anchor: "question_answer_#{@answer.id}"),
+                                         notice: "Successfully posted!" }
+        format.js
+      else
+        format.html { redirect_to question_thread_path(@answer.question_thread_id), alert: "Unable to save your comment" }
+      end
     end
-
   end
 
+  def updated
+    # TODO: implement
+  end
 
   private
 
