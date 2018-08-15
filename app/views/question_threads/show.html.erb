@@ -16,7 +16,7 @@
     <%= render partial: "question_threads/answers/answer", locals:{answer: answer} %>
 
     <% answer.comments.each do |comment| %>
-      <%= render partial: "question_threads/comments/comment", locals:{comment: comment} %>
+      <%= render partial: "question_threads/comments/comment", locals:{answer: answer, comment: comment} %>
     <% end %>
 
     <div class="row" id="addComment-<%= answer.id.to_s %>">
