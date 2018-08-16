@@ -1,0 +1,3 @@
+var id = '#answer-' + <%= @answer.id.to_s %>
+    document.querySelector(id).insertAdjacentHTML("afterend", "<%= j render  @comment, answer: @answer  %>")
+document.querySelector('#new_comment').remove()

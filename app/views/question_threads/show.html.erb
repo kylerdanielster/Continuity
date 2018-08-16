@@ -23,7 +23,8 @@
       <div class="col addComment">
         <% if user_signed_in? %>
           <%= link_to "Add comment", new_answer_comment_url(answer.id), remote: true,
-                      id: "addCommentLink-" + answer.id.to_s %>
+                      id: "addCommentLink-" + answer.id.to_s,
+              locals: { toggleDisplay: "i" } %>
         <% else %>
           <%= link_to "Sign in to add a comment", new_user_session_url %>
         <% end %>
