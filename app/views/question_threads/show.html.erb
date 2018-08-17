@@ -22,9 +22,7 @@
     <div class="row" id="addComment-<%= answer.id.to_s %>">
       <div class="col addComment">
         <% if user_signed_in? %>
-          <%= link_to "Add comment", new_answer_comment_url(answer.id), remote: true,
-                      id: "addCommentLink-" + answer.id.to_s,
-              locals: { toggleDisplay: "i" } %>
+          <%= render partial: "question_threads/comments/form", locals:{answer: answer, comment: answer.comments.new} %>
         <% else %>
           <%= link_to "Sign in to add a comment", new_user_session_url %>
         <% end %>
