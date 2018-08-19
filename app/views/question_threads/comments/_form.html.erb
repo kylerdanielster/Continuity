@@ -1,13 +1,12 @@
 <div class="row">
   <div class="col">
-      <%= form_for [answer, comment], html: {class: "commentForm #{toggleDisplay}"},
-                   data: { target: "inline-edit.form"}, :remote => true do |c| %>
+      <%= form_for [answer, comment], html: {class: "commentForm"}, :remote => true do |c| %>
         <div class="form-group">
           <%= c.text_area :body, placeholder: "Comment", rows: 3, class: "form-control" %>
         </div>
 
         <div class="form-group">
-          <%= c.submit "Add comment", :class => "btn btn-primary form-control" %>
+          <%= c.submit "Comment", :class => "btn btn-primary form-control" %>
         </div>
       <% end %>
   </div>

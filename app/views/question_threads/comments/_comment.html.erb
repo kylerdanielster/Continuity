@@ -3,7 +3,7 @@
     <div class="commentBody mb-3" data-target="inline-edit.body" data-action="click->inline-edit#toggle">
       <%= comment.body %> <small> By: <%= comment.user.name %></small>
     </div>
-      <%= render partial: 'question_threads/comments/form', method: :patch, locals: {
+      <%= render partial: 'question_threads/comments/edit', method: :patch, locals: {
           answer: answer,  comment: comment, toggleDisplay: "d-none" } %>
   </div>
 </div>

@@ -16,7 +16,7 @@ class QuestionThreadsController < ApplicationController
 
   def new
     @question_thread = QuestionThread.new
-    @question_thread.question_answers.new
+    @question_thread.answers.new
   end
 
   def create
