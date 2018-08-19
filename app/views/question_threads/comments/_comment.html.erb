@@ -1,10 +1,16 @@
 <div class="row" id="comment-<%= comment.id.to_s %>" data-controller="inline-edit">
   <div class="comment col">
-    <div class="commentBody mb-3" data-target="inline-edit.body" data-action="click->inline-edit#toggle">
-      <%= comment.body %> <small> By: <%= comment.user.name %></small>
-    </div>
+    <% if user_signed_in? %>
+      <div class="commentBody mb-3" data-target="inline-edit.body" data-action="click->inline-edit#toggle">
+        <%= comment.body %> <small> By: <%= comment.user.name %></small>
+      </div>
       <%= render partial: 'question_threads/comments/edit', method: :patch, locals: {
           answer: answer,  comment: comment, toggleDisplay: "d-none" } %>
+    <% else %>
+      <div class="commentBody mb-3" >
+        <%= comment.body %> <small> By: <%= comment.user.name %></small>
+      </div>
+    <% end %>
   </div>
 </div>
 

@@ -24,7 +24,7 @@
         <% if user_signed_in? %>
           <%= render partial: "question_threads/comments/form", locals:{answer: answer, comment: answer.comments.new} %>
         <% else %>
-          <%= link_to "Sign in to add a comment", new_user_session_url %>
+          <%= link_to "Sign in to comment", new_user_session_url %>
         <% end %>
       </div>
     </div>
