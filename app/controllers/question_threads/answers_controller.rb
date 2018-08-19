@@ -8,7 +8,7 @@ class QuestionThreads::AnswersController < ApplicationController
 		@answer.user = current_user
     respond_to do |format|
       if @answer.save
-        # @question_thread.send_notifications!
+        # setup send_notifications!
         format.html { redirect_to question_thread_path(@question_thread, anchor: "answer_#{@answer.id}"),
                     notice: "Successfully posted!" }
         format.js
@@ -23,7 +23,7 @@ class QuestionThreads::AnswersController < ApplicationController
 	def update
     respond_to do |format|
       if @answer.update answer_params
-        # @question_thread.send_notifications!
+        # setup send_notifications!
         format.html { redirect_to question_thread_path(@question_thread, anchor: "answer_#{@answer.id}"),
                     notice: "Successfully updated!" }
         format.js

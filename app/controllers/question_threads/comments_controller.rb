@@ -1,13 +1,7 @@
 class QuestionThreads::CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_answer
-
-  def new
-    @comment = Comment.new
-    respond_to do |format|
-      format.js
-    end
-  end
+  before_action :set_comment, only: [:update]
 
   def create
 		@comment = @answer.comments.new comment_params
@@ -15,10 +9,8 @@ class QuestionThreads::CommentsController < ApplicationController
 
     respond_to do |format|
     if @comment.save
-        # @question_answer.send_notifications!
-        format.html { redirect_to question_thread_path(@answer.question_thread_id,
-                                         anchor: "question_answer_#{@answer.id}"),
-                                         notice: "Successfully posted!" }
+        # setup send_notifications!
+        format.html { redirect_to question_thread_path(@answer.question_thread_id), notice: "Successfully posted!" }
         format.js
       else
         format.html { redirect_to question_thread_path(@answer.question_thread_id), alert: "Unable to save your comment" }
@@ -26,14 +18,26 @@ class QuestionThreads::CommentsController < ApplicationController
     end
   end
 
-  def updated
-    # TODO: implement
+  def update
+    respond_to do |format|
+      if @comment.update comment_params
+        format.html { redirect_to question_thread_path(@answer.question_thread_id), notice: "Updated comment!" }
+        format.js
+      else
+        format.html { redirect_to question_thread_path(@answer.question_thread_id), alert: "Unable to save your comment" }
+
+      end
+    end
   end
 
   private
 
     def set_answer
       @answer = Answer.find(params[:answer_id])
+    end
+
+    def set_comment
+      @comment = Comment.find(params[:id])
     end
 
 		def comment_params

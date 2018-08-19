@@ -1,3 +1,2 @@
-var id = '#comment-' + "<%= @comment.id.to_s %>"
+var id = '#comment-' + <%= @comment.id.to_s %>
 document.querySelector(id).outerHTML = "<%= j render  @comment, answer: @answer  %>"
-//document.querySelector('#new_comment').remove()
