@@ -1,14 +1,20 @@
-<div class="row" id="answer-<%= answer.id %>" >
+<div class="row" id="answer-<%= answer.id %>" data-controller="inline-edit">
   <div class="col answer">
     <div class="userName">Answer By: <%= answer.user.name %></div>
-    <div class="answerBody mb-3"><%= answer.body %></div>
-
-    <% if user_signed_in? and answer.user_id == current_user.id %>
-      <%= link_to "Accept Answer",
-                  accepted_answers_url(answer_id: answer.id, question_thread_id: answer.question_thread_id),
-                  id: "acceptAnswerLink-" + answer.id.to_s, :method => :post %>
+   <% if user_signed_in? and answer.user_id == current_user.id %>
+    <div class="answerBody mb-3" data-target="inline-edit.body" data-action="click->inline-edit#toggle">
+      <%= answer.body %>
+    </div>
+    <%= render partial: "question_threads/answers/edit", method: :patch,  locals: {
+        answer: answer, toggleDisplay: "d-none"  } %>
+    <%= link_to "Accept Answer",
+                accepted_answers_url(answer_id: answer.id, question_thread_id: answer.question_thread_id),
+                id: "acceptAnswerLink-" + answer.id.to_s, :method => :post %>
+    <% else %>
+     <div class="answerBody mb-3" data-target="inline-edit.body" data-action="click->inline-edit#toggle">
+      <%= answer.body %>
+    </div>
     <% end %>
-
   </div>
 </div>
 

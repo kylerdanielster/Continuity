@@ -1,6 +1,6 @@
 <div class="row" id="comment-<%= comment.id.to_s %>" data-controller="inline-edit">
   <div class="comment col">
-    <% if user_signed_in? %>
+    <% if user_signed_in? and comment.user_id == current_user.id %>
       <div class="commentBody mb-3" data-target="inline-edit.body" data-action="click->inline-edit#toggle">
         <%= comment.body %> <small> By: <%= comment.user.name %></small>
       </div>

@@ -1,0 +1,2 @@
+var id = '#answer-' + <%= @answer.id.to_s %>
+document.querySelector(id).outerHTML = "<%= j render @answer, question_thread: @question_thread %>"

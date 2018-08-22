@@ -1,6 +1,7 @@
 class QuestionThreads::AnswersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_question_thread
+  before_action :set_answer, only: [:update]
 
 	# create for POST to save instance created in new method
 	def create
@@ -38,6 +39,10 @@ class QuestionThreads::AnswersController < ApplicationController
 
     def set_question_thread
       @question_thread = QuestionThread.find(params[:question_thread_id])
+    end
+
+    def set_answer
+      @answer = Answer.find(params[:id])
     end
 
 		def answer_params
