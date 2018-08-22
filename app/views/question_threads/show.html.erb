@@ -10,7 +10,6 @@
   <%= render partial: "question_threads/accepted_answers/accepted_answer" %>
 <% end %>
 
-
 <div id="answers">
   <% @answers.each do |answer| %>
     <%= render partial: "question_threads/answers/answer", locals:{answer: answer} %>
@@ -28,10 +27,13 @@
         <% end %>
       </div>
     </div>
-
   <% end %>
 </div>
 
-<%= render partial: "question_threads/answers/form" %>
+<% if user_signed_in? %>
+  <%= render partial: "question_threads/answers/form" %>
+<% else %>
+   <%= link_to "Sign in to answer", new_user_session_url %>
+<% end %>
 
 
