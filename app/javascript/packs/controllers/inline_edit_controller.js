@@ -5,8 +5,14 @@ export default class extends Controller {
     initialize() {
     }
 
-    toggle() {
+    showForm() {
         this.bodyTarget.classList.add('d-none')
         this.formTarget.classList.remove('d-none')
+        $('#' + this.formTarget.id).find('textarea').focus()
+    }
+
+    hideForm() {
+        this.bodyTarget.classList.remove('d-none')
+        this.formTarget.classList.add('d-none')
     }
 }

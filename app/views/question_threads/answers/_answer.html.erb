@@ -2,7 +2,7 @@
   <div class="col answer">
     <div class="userName">Answer By: <%= answer.user.name %></div>
    <% if user_signed_in? and answer.user_id == current_user.id %>
-    <div class="answerBody mb-3" data-target="inline-edit.body" data-action="click->inline-edit#toggle">
+    <div class="answerBody mb-3" data-target="inline-edit.body" data-action="click->inline-edit#showForm">
       <%= answer.body %>
     </div>
     <%= render partial: "question_threads/answers/edit", method: :patch,  locals: {
