@@ -11,7 +11,7 @@
                 accepted_answers_url(answer_id: answer.id, question_thread_id: answer.question_thread_id),
                 id: "acceptAnswerLink-" + answer.id.to_s, :method => :post %>
     <% else %>
-     <div class="answerBody mb-3" data-target="inline-edit.body" data-action="click->inline-edit#toggle">
+     <div class="answerBody mb-3">
       <%= answer.body %>
     </div>
     <% end %>
