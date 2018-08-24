@@ -3,7 +3,6 @@ class QuestionThreads::AnswersController < ApplicationController
   before_action :set_question_thread
   before_action :set_answer, only: [:update]
 
-	# create for POST to save instance created in new method
 	def create
 		@answer = @question_thread.answers.new answer_params
 		@answer.user = current_user
@@ -20,7 +19,6 @@ class QuestionThreads::AnswersController < ApplicationController
     end
   end
 
-  # Not used yet
 	def update
     respond_to do |format|
       if @answer.update answer_params

@@ -1,8 +1,10 @@
 <%= form_for question_thread, html: {class: "#{toggleDisplay}"}, data: { target: "inline-edit.form"}, :remote => true do |f| %>
-   <div class="form-group">
-    <%= f.text_area :details, placeholder: "Details", rows: 10, class: "form-control", data: { action: "blur->inline-edit#hideForm" } %>
+  <div class="form-group">
+    <%= f.text_area :details, placeholder: "Details", rows: 10, class: "form-control" %>
   </div>
- <div class="form-group">
+  <div class="form-group">
     <%= f.submit :class => "btn btn-primary form-control" %>
   </div>
+
+  <%= submit_tag 'Close', type: 'button', class: "btn btn-secondary col", data: { action: "click->inline-edit#hideForm"} %>
 <% end %>
