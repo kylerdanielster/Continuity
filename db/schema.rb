@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2018_08_12_184353) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "announcements", force: :cascade do |t|
     t.datetime "published_at"
     t.string "announcement_type"
@@ -38,7 +41,7 @@ ActiveRecord::Schema.define(version: 2018_08_12_184353) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "friendly_id_slugs", force: :cascade do |t|
+  create_table "friendly_id_slugs", id: :serial, force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
     t.string "sluggable_type", limit: 50
@@ -71,7 +74,7 @@ ActiveRecord::Schema.define(version: 2018_08_12_184353) do
   end
 
   create_table "services", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.string "provider"
     t.string "uid"
     t.string "access_token"
@@ -105,4 +108,5 @@ ActiveRecord::Schema.define(version: 2018_08_12_184353) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "services", "users"
 end
