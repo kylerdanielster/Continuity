@@ -6,16 +6,13 @@ class QuestionThreads::AnswersController < ApplicationController
 	def create
 		@answer = @question_thread.answers.new answer_params
 		@answer.user = current_user
-    respond_to do |format|
-      if @answer.save
-        # setup send_notifications!
-        format.html { redirect_to question_thread_path(@question_thread, anchor: "answer_#{@answer.id}"),
-                    notice: "Successfully posted!" }
-        format.js
-      else
-        format.html { redirect_to @question_thread, alert: "Unable to save your post" }
-        format.js
-      end
+
+    if @answer.save
+      # setup send_notifications!
+      redirect_to question_thread_path(@question_thread, anchor: "answer-#{@answer.id}"),
+                  notice: "Successfully posted!"
+    else
+      redirect_to @question_thread, alert: "Unable to save your post"
     end
   end
 
@@ -23,7 +20,7 @@ class QuestionThreads::AnswersController < ApplicationController
     respond_to do |format|
       if @answer.update answer_params
         # setup send_notifications!
-        format.html { redirect_to question_thread_path(@question_thread, anchor: "answer_#{@answer.id}"),
+        format.html { redirect_to question_thread_path(@question_thread, anchor: "answer-#{@answer.id}"),
                     notice: "Successfully updated!" }
         format.js
       else
