@@ -1,0 +1,17 @@
+<div class="page-header">
+  <%= link_to chatrooms_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    All Chatrooms
+  <% end %>
+  <%= link_to edit_chatroom_path(@chatroom), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show chatroom</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @chatroom.name %></dd>
+
+</dl>
