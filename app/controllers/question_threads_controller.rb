@@ -1,6 +1,8 @@
 class QuestionThreadsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_question_thread, except: [:index, :new, :create]
+  before_action :set_chatroom, only: [:show]
+  before_action :set_chatroom_user, only: [:show]
 
   def index
     @question_threads = QuestionThread.all
@@ -21,8 +23,9 @@ class QuestionThreadsController < ApplicationController
 
   def create
     @question_thread = current_user.question_threads.new question_thread_params
+    @chatroom = Chatroom.new(name: "Chatroom #{@question_thread.id}", question_thread_id: @question_thread.id)
 
-    if @question_thread.save
+    if @question_thread.save && @chatroom.save
       redirect_to @question_thread, notice: "Successfully created!"
     else
       render action: new, alert: "Unable to create your question"
@@ -42,6 +45,15 @@ class QuestionThreadsController < ApplicationController
     
     def set_question_thread
       @question_thread = QuestionThread.find(params[:id])
+    end
+
+    def set_chatroom
+      @chatroom = Chatroom.find_by(question_thread_id: params[:id])
+      @chatroom.messages.order(created_at: :desc).limit(100).reverse
+    end
+
+    def set_chatroom_user
+      @chatroom_user = @chatroom.chatroom_users.where(user_id: current_user.id).first_or_create
     end
 
     def question_thread_params

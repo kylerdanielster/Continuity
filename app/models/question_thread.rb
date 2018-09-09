@@ -8,12 +8,14 @@
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  accepted_answer_id :integer
+#  chatroom_id        :integer
 #  user_id            :integer
 #
 
 class QuestionThread < ApplicationRecord
   belongs_to :user
   has_many :answers
+  has_one :chatroom
 
   validates :question, presence: true
   validates :details, presence: true
