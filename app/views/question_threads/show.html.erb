@@ -1,17 +1,6 @@
 <div class="row">
   <div class="col-3 chatroom">
-    <h2><%= @chatroom.name %></h2>
-
-    <div data-behavior="messages">
-      <% @chatroom.messages.each do |message| %>
-        <div><strong><%= message.user.username %>: </strong><%= message.body %></div>
-      <% end %>
-    </div>
-
-    <%= form_for [@chatroom, Message.new] do |f| %>
-      <%= f.text_area :body, rows: 1, class: "form-control" %>
-    <% end %>
-
+    <%= render partial: "chatrooms/chatroom", locals: { chatroom: @chatroom } %>
   </div>
   <div class="col-6 question">
 
