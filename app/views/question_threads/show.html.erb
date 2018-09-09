@@ -1,7 +1,9 @@
 <div class="row">
+
   <div class="col-3 chatroom">
     <%= render partial: "chatrooms/chatroom", locals: { chatroom: @chatroom } %>
   </div>
+
   <div class="col-6 question">
 
     <div data-controller="inline-edit">
@@ -27,37 +29,39 @@
     </div>
 
 
-<% if not @accepted_answer.empty? %>
-  <%= render partial: "question_threads/accepted_answers/accepted_answer" %>
-<% end %>
-
-<div id="answers">
-  <% @answers.each do |answer| %>
-    <%= render partial: "question_threads/answers/answer", locals:{answer: answer} %>
-
-    <% answer.comments.each do |comment| %>
-      <%= render partial: "question_threads/comments/comment", locals:{answer: answer, comment: comment} %>
+    <% if not @accepted_answer.empty? %>
+      <%= render partial: "question_threads/accepted_answers/accepted_answer" %>
     <% end %>
 
-    <div class="row" id="addComment-<%= answer.id.to_s %>">
-      <div class="col addComment">
-        <% if user_signed_in? %>
-          <%= render partial: "question_threads/comments/form", locals:{answer: answer, comment: answer.comments.new} %>
-        <% else %>
-          <%= link_to "Sign in to comment", new_user_session_url %>
+    <div id="answers">
+      <% @answers.each do |answer| %>
+
+        <%= render partial: "question_threads/answers/answer", locals:{answer: answer} %>
+
+        <% answer.comments.each do |comment| %>
+          <%= render partial: "question_threads/comments/comment", locals:{answer: answer, comment: comment} %>
         <% end %>
-      </div>
+
+        <div class="row" id="addComment-<%= answer.id.to_s %>">
+          <div class="col addComment">
+            <% if user_signed_in? %>
+              <%= render partial: "question_threads/comments/form", locals:{answer: answer, comment: answer.comments.new} %>
+            <% else %>
+              <%= link_to "Sign in to comment", new_user_session_url %>
+            <% end %>
+          </div>
+        </div>
+
+      <% end %>
     </div>
-  <% end %>
-</div>
 
-<% if user_signed_in? %>
-  <%= render partial: "question_threads/answers/form" %>
-<% else %>
-   <%= link_to "Sign in to answer", new_user_session_url %>
-<% end %>
+    <% if user_signed_in? %>
+      <%= render partial: "question_threads/answers/form" %>
+    <% else %>
+       <%= link_to "Sign in to answer", new_user_session_url %>
+    <% end %>
 
-</div>
+  </div>
 
   <div class="col-3">
     <h2>Not sure what I want here yet</h2>
