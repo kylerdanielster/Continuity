@@ -6,8 +6,7 @@ class MessagesController < ApplicationController
     message = @chatroom.messages.new(message_params)
     message.user = current_user
     message.save
-    # MessageRelayJob.perform_later(message)
-    redirect_to QuestionThread.find(@chatroom.question_thread_id)
+    MessageRelayJob.perform_later(message)
   end
 
   private
