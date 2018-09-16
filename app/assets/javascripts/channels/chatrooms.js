@@ -13,6 +13,6 @@ App.chatrooms = App.cable.subscriptions.create("ChatroomsChannel", {
   },
 
   send_message: function (chatroom_id, message) {
-    this.perform("send_message", { chatroom_id: chatroom_id, body: message })
+      this.perform("send_message", { chatroom_id: chatroom_id, body: message })
   }
 });
