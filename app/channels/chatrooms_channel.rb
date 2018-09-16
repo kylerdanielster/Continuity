@@ -1,5 +1,7 @@
 class ChatroomsChannel < ApplicationCable::Channel
   def subscribed
+
+    # NOTE: I may not want to loop through each users chatroom
     current_user.chatrooms.each do |chatroom|
       stream_from "chatrooms:#{chatroom.id}"
     end
