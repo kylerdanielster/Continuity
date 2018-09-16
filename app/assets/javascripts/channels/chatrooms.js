@@ -10,5 +10,9 @@ App.chatrooms = App.cable.subscriptions.create("ChatroomsChannel", {
   received: function(data) {
     // Called when there's incoming data on the websocket for this channel
       $("[data-behavior='messages'][data-chatroom-id='#{data.chatroom.id}']").append(data.message)
+  },
+
+  send_message: function (chatroom_id, message) {
+    this.perform("send_message", { chatroom_id: chatroom_id, body: message })
   }
 });
