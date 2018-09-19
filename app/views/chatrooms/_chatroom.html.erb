@@ -1,11 +1,15 @@
 <h2><%= chatroom.name %></h2>
 
-<div data-behavior="messages" data-chatroom-id="<%= @chatroom.id %>">
+<div data-behavior="messages" id="chatroom" data-chatroom-id="<%= @chatroom.id %>">
   <% chatroom.messages.each do |message| %>
     <%= render message %>
   <% end %>
 </div>
 
-<%= form_for [chatroom, Message.new] do |f| %>
-  <%= f.text_area :body, rows: 1, class: "form-control" %>
+<% if user_signed_in? %>
+  <%= form_for [chatroom, Message.new] do |f| %>
+    <%= f.text_area :body, rows: 1, class: "form-control" %>
+  <% end %>
+<% else %>
+  <%= link_to "Sign in to participate in the discussion", new_user_session_url %>
 <% end %>

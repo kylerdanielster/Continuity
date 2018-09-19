@@ -16,6 +16,8 @@ $(document).on('turbolinks:load', function() {
 
         body.val("")
     });
+
+    $("#chatroom").scrollTop($("#chatroom")[0].scrollHeight);
 });
 
 

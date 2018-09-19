@@ -68,6 +68,15 @@ body > .alert {
   padding-top: 1rem;
 }
 
-.chatroom {
-  padding-left: 1.75rem;
+#chatroom {
+  padding: 10px 10px;
+  border: 1px solid #ececec;
+  border-radius: 1px;
+  max-height: 80vh;
+  min-height: 50vh;
+  overflow: scroll;
+}
+
+.chat {
+  padding: 0 .5rem .5rem 0;
 }

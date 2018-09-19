@@ -53,7 +53,9 @@ class QuestionThreadsController < ApplicationController
     end
 
     def set_chatroom_user
-      @chatroom_user = @chatroom.chatroom_users.where(user_id: current_user.id).first_or_create
+      if user_signed_in?
+        @chatroom_user = @chatroom.chatroom_users.where(user_id: current_user.id).first_or_create
+      end
     end
 
     def question_thread_params
