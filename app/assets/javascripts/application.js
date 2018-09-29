@@ -18,5 +18,6 @@
 //= require local-time
 //= require activestorage
 //= require turbolinks
+//= require jquery.easy-autocomplete
 //= require_tree .
 
