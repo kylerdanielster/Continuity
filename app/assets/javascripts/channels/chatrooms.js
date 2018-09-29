@@ -11,6 +11,7 @@ App.chatrooms = App.cable.subscriptions.create("ChatroomsChannel", {
     // Called when there's incoming data on the websocket for this channel
       chatroom = $("[data-behavior='messages'][data-chatroom-id=" + data.chatroom_id + "]")
       chatroom.append("<div><strong>" + data.username + ":</strong> " + data.body + "</div>")
+      $("#chatroom").scrollTop($("#chatroom")[0].scrollHeight)
   },
 
   send_message: function (chatroom_id, message) {
