@@ -16,9 +16,6 @@ $(document).on('turbolinks:load', function() {
 
         body.val("")
     });
-
-    // Should move this to a stimulus controller.
-    if($('#chatroom').is(':visible')) { $("#chatroom").scrollTop($("#chatroom")[0].scrollHeight); }
 });
 
 
