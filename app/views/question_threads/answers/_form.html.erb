@@ -1,6 +1,6 @@
 <%= form_for [@question_thread, @answer], html: {class: "answerForm"}, :remote => true  do |f| %>
   <div class="form-group">
-    <%= f.text_area :body, placeholder: "Answer", rows: 10, class: "form-control" %>
+    <%= f.text_area :body, data: { behavior: "mentions" }, placeholder: "Answer", rows: 10, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= f.submit "Submit Answer", :class => "btn btn-primary form-control" %>

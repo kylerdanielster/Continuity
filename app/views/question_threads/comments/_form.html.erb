@@ -1,6 +1,6 @@
 <%= form_for [answer, comment], html: {class: "commentForm"}, :remote => true do |c| %>
   <div class="form-group">
-    <%= c.text_area :body, placeholder: "Comment", rows: 3, class: "form-control" %>
+    <%= c.text_area :body, data: { behavior: "mentions" }, placeholder: "Comment", rows: 3, class: "form-control" %>
   </div>
 
   <div class="form-group">

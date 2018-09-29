@@ -14,7 +14,7 @@
 
 class QuestionThread < ApplicationRecord
   include Mentions
-  after_create :Mentions.send_notification_emails(:details)
+  #after_create :Mentions.send_notification_emails(:details)
 
   belongs_to :user
   has_many :answers
