@@ -21,6 +21,8 @@
 #
 
 class Message < ApplicationRecord
+  include Mentions
+
   belongs_to :chatroom
   belongs_to :user
 end

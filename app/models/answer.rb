@@ -12,6 +12,8 @@
 #
 
 class Answer < ApplicationRecord
+  include Mentions
+
   belongs_to :question_thread
   belongs_to :user
   has_many :comments

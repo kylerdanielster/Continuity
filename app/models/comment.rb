@@ -11,6 +11,8 @@
 #
 
 class Comment < ApplicationRecord
+  include Mentions
+
   belongs_to :answer
   belongs_to :user
 end

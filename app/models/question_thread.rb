@@ -13,6 +13,8 @@
 #
 
 class QuestionThread < ApplicationRecord
+  include Mentions
+
   belongs_to :user
   has_many :answers
   has_one :chatroom
