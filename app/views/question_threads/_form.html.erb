@@ -3,7 +3,7 @@
     <%= f.text_field :question, placeholder: "Question", class: "form-control" %>
   </div>
    <div class="form-group">
-    <%= f.text_area :details, placeholder: "Details", rows: 10, class: "form-control" %>
+    <%= f.text_area :details, data: { behavior: "mentions" }, placeholder: "Details", rows: 10, class: "form-control" %>
   </div>
  <div class="form-group">
     <%= f.submit :class => "btn btn-primary form-control" %>

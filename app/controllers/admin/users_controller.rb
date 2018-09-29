@@ -1,14 +1,11 @@
 module Admin
   class UsersController < Admin::ApplicationController
-    # To customize the behavior of this controller,
-    # you can overwrite any of the RESTful actions. For example:
-    #
-    # def index
-    #   super
-    #   @resources = User.
-    #     page(params[:page]).
-    #     per(10)
-    # end
+
+    # GET /users
+    # GET /users.json
+    def index
+      @users = User.all
+    end
 
     # Define a custom finder by overriding the `find_resource` method:
     # def find_resource(param)

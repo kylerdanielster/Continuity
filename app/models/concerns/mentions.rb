@@ -1,6 +1,12 @@
 module Mentions
   extend ActiveSupport::Concern
 
+  def send_notification_emails(field)
+    mentioned_users(field.to_s).each do |user|
+      Mail.new(user)
+    end
+  end
+
   def mentions(field)
     @mentions ||= begin
       regex = /@([\w]+)/
