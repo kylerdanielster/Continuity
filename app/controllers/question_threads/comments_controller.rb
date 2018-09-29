@@ -21,6 +21,7 @@ class QuestionThreads::CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update comment_params
+        # setup send_notifications!
         format.html { redirect_to question_thread_path(@answer.question_thread_id), notice: "Updated comment!" }
         format.js
       else

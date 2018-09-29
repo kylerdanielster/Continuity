@@ -25,6 +25,7 @@ class QuestionThreadsController < ApplicationController
     @question_thread = current_user.question_threads.new question_thread_params
     @chatroom = Chatroom.new(name: "Chatroom #{@question_thread.id}", question_thread_id: @question_thread.id)
 
+    byebug
     if @question_thread.save && @chatroom.save
       redirect_to @question_thread, notice: "Successfully created!"
     else

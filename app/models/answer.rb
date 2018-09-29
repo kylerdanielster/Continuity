@@ -19,4 +19,11 @@ class Answer < ApplicationRecord
   has_many :comments
 
   validates :body, presence: true
+
+  def send_notifications!
+    users = question_thread.users.uniq - [user]
+    users.each do |user|
+      NotificationMailer.question_thread_notification(user, self).deliver_later
+    end
+  end
 end
