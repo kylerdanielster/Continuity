@@ -8,20 +8,18 @@
 
     <div data-controller="inline-edit">
       <% if user_signed_in? and @question_thread.user_id == current_user.id %>
-        <h1 data-target="inline-edit.body" data-action="click->inline-edit#showForm"><%= @question_thread.question %></h1>
+        <h1 data-action="click->inline-edit#showForm"><%= @question_thread.question %></h1>
         <%= render partial: "question_threads/edit_question", method: :patch,  locals: {
             question_thread: @question_thread, toggleDisplay: "d-none"  } %>
       <% else %>
         <h1><%= @question_thread.question %></h1>
       <% end %>
-    </div>
 
     <div class="text-muted">Asked by <%= @question_thread.user.name %></div>
 
-    <div data-controller="inline-edit">
       <% if user_signed_in? and @question_thread.user_id == current_user.id %>
         <div data-target="inline-edit.body" data-action="click->inline-edit#showForm"><%= @question_thread.details %></div>
-        <%= render partial: "question_threads/edit_details", method: :patch,  locals: {
+        <%= render partial: "question_threads/edit_question", method: :patch,  locals: {
             question_thread: @question_thread, toggleDisplay: "d-none"  } %>
       <% else %>
         <div><%= @question_thread.details %></div>
