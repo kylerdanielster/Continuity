@@ -2,6 +2,7 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
     static targets = []
+    // At some point I would like to refactor new message into individual target methods
     initialize() {
         $("#new_message").keypress(function(e) {
             if(e && e.keyCode === 13) {
