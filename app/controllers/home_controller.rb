@@ -23,4 +23,11 @@ class HomeController < ApplicationController
       }
     end
   end
+
+  # GET /users
+  # GET /users.json
+  def users
+    @users = User.all
+  end
+
 end

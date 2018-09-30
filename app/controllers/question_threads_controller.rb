@@ -23,13 +23,14 @@ class QuestionThreadsController < ApplicationController
 
   def create
     @question_thread = current_user.question_threads.new question_thread_params
-    @chatroom = Chatroom.new(name: "Chatroom #{@question_thread.id}", question_thread_id: @question_thread.id)
 
-    byebug
-    if @question_thread.save && @chatroom.save
-      redirect_to @question_thread, notice: "Successfully created!"
+    if @question_thread.save
+      @chatroom = Chatroom.new(name: "Chatroom #{@question_thread.id}", question_thread_id: @question_thread.id)
+      if @chatroom.save
+        redirect_to @question_thread, notice: "Successfully created!"
+      end
     else
-      render action: new, alert: "Unable to create your question"
+      redirect_to question_thread_path(@question_thread), alert: "Unable to create your question"
     end
   end
 

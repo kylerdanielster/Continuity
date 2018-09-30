@@ -19,7 +19,7 @@ class QuestionThread < ApplicationRecord
   belongs_to :user
   has_many :answers
   has_many :comments, :through => :answers
-  has_many :users, :through => :comments
+  has_many :users, :through => :answers
   has_one :chatroom
 
   validates :question, presence: true

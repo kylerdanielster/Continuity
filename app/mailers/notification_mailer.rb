@@ -1,6 +1,8 @@
 class NotificationMailer < ApplicationMailer
 
-  def question_thread_notification(user, answer)
+  # question thread notification
+
+  def answer_notification(user, answer)
     @user = user
     @answer = answer
 

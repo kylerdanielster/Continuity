@@ -25,7 +25,7 @@
 $(document).on('turbolinks:load', function() {
     // This should be a search controller at some point
     $(function(){
-        data = "/admin/users.json";
+        data = "/users.json";
         $("[data-behavior='mentions']").atwho({at:"@", 'data':data});
     });
 });

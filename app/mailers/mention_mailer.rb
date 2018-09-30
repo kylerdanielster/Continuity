@@ -1,4 +1,3 @@
 class MentionMailer < ApplicationMailer
 
-
 end

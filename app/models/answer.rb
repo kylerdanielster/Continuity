@@ -23,7 +23,7 @@ class Answer < ApplicationRecord
   def send_notifications!
     users = question_thread.users.uniq - [user]
     users.each do |user|
-      NotificationMailer.question_thread_notification(user, self).deliver_later
+      NotificationMailer.answer_notification(user, self).deliver_later
     end
   end
 end
