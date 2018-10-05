@@ -12,7 +12,7 @@
 #
 
 class Answer < ApplicationRecord
-  include Mentions
+  after_save :send_mentions!
 
   belongs_to :question_thread
   belongs_to :user
@@ -25,5 +25,9 @@ class Answer < ApplicationRecord
     users.each do |user|
       NotificationMailer.answer_notification(user, self).deliver_later
     end
+  end
+
+  def send_mentions!
+    MentionMailer.send_mention_emails(:body, question_thread)
   end
 end

@@ -9,7 +9,7 @@ class QuestionThreads::CommentsController < ApplicationController
 
     respond_to do |format|
     if @comment.save
-        # setup send_notifications!
+        @comment.send_notifications!
         format.html { redirect_to question_thread_path(@answer.question_thread_id), notice: "Successfully posted!" }
         format.js
       else
@@ -21,7 +21,7 @@ class QuestionThreads::CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update comment_params
-        # setup send_notifications!
+        @comment.send_notifications!
         format.html { redirect_to question_thread_path(@answer.question_thread_id), notice: "Updated comment!" }
         format.js
       else

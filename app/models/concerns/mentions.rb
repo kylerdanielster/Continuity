@@ -1,9 +1,11 @@
 module Mentions
   extend ActiveSupport::Concern
 
-  def send_notification_emails(field)
-    mentioned_users(field.to_s).each do |user|
-      Mail.new(user)
+  class_methods do
+    def send_mention_emails(field, question)
+      mentioned_users(field.to_s).each do |user|
+        MentionMailer.send_mention_email(user, question)
+      end
     end
   end
 

@@ -36,7 +36,7 @@ class QuestionThreadsController < ApplicationController
 
   def update
     if @question_thread.update question_thread_params
-      # setup send_notifications!
+      @question_thread.send_notifications!
       redirect_to question_thread_path(@question_thread), notice: "Successfully updated!"
     else
       redirect_to @question_thread, alert: "Unable to save your post"
