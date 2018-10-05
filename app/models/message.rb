@@ -21,8 +21,13 @@
 #
 
 class Message < ApplicationRecord
-  include Mentions
+  after_save :send_mentions!
 
   belongs_to :chatroom
   belongs_to :user
+
+  def send_mentions!
+    #byebug
+    MentionMailer.chat_message_mention(:body, chatroom.question_thread)
+  end
 end

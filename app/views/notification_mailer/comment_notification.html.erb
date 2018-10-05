@@ -1,0 +1,4 @@
+<h1>New answer in <%= @answer.question_thread.question %></h1>
+
+<p><%= link_to "Reply", question_thread_url(@answer.question_thread_id.to_s,
+                                            anchor: dom_id(@answer)) %></p>

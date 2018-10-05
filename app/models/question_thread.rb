@@ -13,7 +13,6 @@
 #
 
 class QuestionThread < ApplicationRecord
-  include Mentions
   after_save :send_mentions!
 
   belongs_to :user

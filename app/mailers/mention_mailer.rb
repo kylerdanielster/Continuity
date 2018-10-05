@@ -1,6 +1,7 @@
 class MentionMailer < ApplicationMailer
 
-  def send_mention_emails(field, question)
+  def chat_message_mention(field, question)
+    #byebug
     mentioned_users(field.to_s).each do |user|
       mail(
           to: "#{user.email}",
